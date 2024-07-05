@@ -1,7 +1,7 @@
 services:
   - name: stock-fight-backend
     type: web
-    env: python
+    env: docker
     plan: free
     buildCommand: 
       - pip install poetry

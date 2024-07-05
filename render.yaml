@@ -1,6 +1,6 @@
 services:
-  - type: web
-    name: stock-fight
+  - name: stock-fight-backend
+    type: web
     env: python
     plan: free
     buildCommand: 
@@ -13,4 +13,15 @@ services:
       - key: ALPHA_VANTAGE_API_KEY
         value: YOUR_ALPHA_VANTAGE_API_KEY
       - key: REDIS_URL
-        value: YOUR_REDIS_URL
+        fromDatabase:
+          name: your-redis-instance-name
+          property: connectionString
+  - name: stock-fight-frontend
+    type: web
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run build && npm run serve
+    envVars:
+      - key: VITE_API_URL
+        value: "https://stock-fight-backend.onrender.com"

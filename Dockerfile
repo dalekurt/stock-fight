@@ -1,7 +1,7 @@
 # Dockerfile
 
 # Backend
-FROM python:3.12 AS backend
+FROM python:3.12-slim AS backend
 
 WORKDIR /app
 

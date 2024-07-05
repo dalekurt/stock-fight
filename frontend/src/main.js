@@ -294,7 +294,7 @@ async function displayStockData(event) {
   }
 
   await displayStockChart(stock1Symbol, 'stock1-chart', 'week');
-  await displayStockChart(stock2Symbol, 'stock2-chart', 'week');
+  await displayStockChart(stock2Symbol, 'week');
 }
 
 function formatProsCons(items, type) {
@@ -446,7 +446,7 @@ applyTheme(savedTheme);
 
 async function checkServerHealth() {
   try {
-    const response = await fetch('${backendUrl}/healthz');
+    const response = await fetch(`${backendUrl}/healthz`);
     if (!response.ok) {
       throw new Error('Health check failed');
     }

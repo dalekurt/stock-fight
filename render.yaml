@@ -3,11 +3,8 @@ services:
     type: web
     env: docker
     plan: free
-    buildCommand: 
-      - pip install poetry
-      - poetry env use 3.12
-      - poetry install
-    startCommand: poetry run uvicorn stock_fight.app.main:app --host 0.0.0.0 --port $PORT
+    buildCommand: docker build -t stock-fight-backend .
+    startCommand: docker run -p 8000:8000 stock-fight-backend
     envVars:
       - key: FINNHUB_API_KEY
         value: YOUR_FINNHUB_API_KEY

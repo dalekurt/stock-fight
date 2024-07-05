@@ -142,9 +142,12 @@ app.innerHTML = `
   </div>
 `;
 
+// Import the environment variable
+const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+
 async function fetchStockData(symbol) {
   try {
-    const response = await fetch(`http://localhost:8000/stock/${symbol}`);
+    const response = await fetch(`${backendUrl}/stock/${symbol}`);
     if (!response.ok) {
       throw new Error(`Error fetching data for ${symbol}: ${response.statusText}`);
     }
@@ -170,7 +173,7 @@ async function fetchHistoricalData(symbol, range) {
   }
 
   try {
-    const response = await fetch(`http://localhost:8000/stock/${symbol}/historical?range=${interval}`);
+    const response = await fetch(`${backendUrl}/stock/${symbol}/historical?range=${interval}`);
     if (!response.ok) {
       throw new Error(`Error fetching historical data for ${symbol}: ${response.statusText}`);
     }
@@ -185,7 +188,7 @@ async function fetchHistoricalData(symbol, range) {
 
 async function fetchProsCons(symbol) {
   try {
-    const response = await fetch(`http://localhost:8000/stock/${symbol}/pros_cons`);
+    const response = await fetch(`${backendUrl}/stock/${symbol}/pros_cons`);
     if (!response.ok) {
       throw new Error(`Error fetching pros and cons for ${symbol}: ${response.statusText}`);
     }
@@ -443,7 +446,7 @@ applyTheme(savedTheme);
 
 async function checkServerHealth() {
   try {
-    const response = await fetch('http://localhost:8000/healthz');
+    const response = await fetch('${backendUrl}/healthz');
     if (!response.ok) {
       throw new Error('Health check failed');
     }

@@ -1,9 +1,7 @@
-# stock_fight/app/redis_cache.py
-
-import os
+# path: stock_fight/app/redis_cache.py
 
 from redis.asyncio import Redis
 
-redis_url = os.getenv("REDIS_URL", "redis://localhost:6379")
+from .config import settings
 
-redis = Redis.from_url(redis_url, decode_responses=True)
+redis = Redis.from_url(settings.redis_url, decode_responses=True)

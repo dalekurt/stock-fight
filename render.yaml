@@ -11,9 +11,7 @@ services:
       - key: ALPHA_VANTAGE_API_KEY
         value: YOUR_ALPHA_VANTAGE_API_KEY
       - key: REDIS_URL
-        fromDatabase:
-          name: your-redis-instance-name
-          property: connectionString
+        value: YOUR_REDIS_URL
   - name: stock-fight-frontend
     type: web
     env: node

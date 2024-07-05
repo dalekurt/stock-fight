@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: stock-fight
+    env: python
+    plan: free
+    buildCommand: 
+      - pip install poetry
+      - poetry install
+    startCommand: poetry run uvicorn stock_fight.app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: FINNHUB_API_KEY
+        value: YOUR_FINNHUB_API_KEY
+      - key: ALPHA_VANTAGE_API_KEY
+        value: YOUR_ALPHA_VANTAGE_API_KEY
+      - key: REDIS_URL
+        value: YOUR_REDIS_URL

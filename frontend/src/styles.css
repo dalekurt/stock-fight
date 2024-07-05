@@ -1,0 +1,211 @@
+/* path: frontend/src/styles.css --> */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+  background: linear-gradient(145deg, #14112E, #372D7D);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.title-container h1 {
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.theme-toggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+.subtitle-container {
+  margin-top: 1rem;
+}
+
+.subtitle-container h2 {
+  margin: 10px 0;
+  font-size: 3.0rem;
+}
+
+.subtitle-container h3 {
+  margin: 10px 0;
+  font-size: 1.5rem;
+  color: #BDB8E7;
+}
+
+.highlight {
+  color: #AAA4DE;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+#stock-form {
+  display: flex;
+  justify-content: center;
+}
+
+#stock-form input, #stock-form button {
+  margin: 0 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #6558C8;
+}
+
+#stock-form input {
+  background-color: #161235;
+  color: #ACA5E1;
+}
+
+#stock-form button {
+  background: #1E194A;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.table-container {
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: none;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:not(:last-child) {
+  border-bottom: 1px solid #e5e7eb; /* Light border */
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.fixed-header {
+  background-color: #1f2937;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.chart-container {
+  width: 100%; /* Ensures the chart container takes full width */
+}
+
+.chart-container canvas {
+  width: 100% !important; /* Ensures the canvas element takes full width */
+  height: auto !important; /* Maintains aspect ratio */
+}
+
+.skeleton-loader {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+.dark-mode .header {
+  background-color: #1f2937;
+}
+
+.dark-mode .form-container {
+  background-color: #1f2937;
+}
+
+.dark-mode table {
+  color: white;
+}
+
+.dark-mode th, .dark-mode td {
+  border-color: #333;
+}
+
+.dark-mode tr:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+.dark-mode tr:not(:last-child) {
+  border-bottom: 1px solid #333; /* Dark border */
+}
+
+.dark-mode a {
+  color: #8b5cf6; /* Purple link color */
+}
+
+.footer {
+  background-color: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .social-icons {
+  margin: 1rem 0;
+}
+
+.footer .social-icons img {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+}
+
+.footer .personal-project {
+  font-size: 0.8rem;
+  color: #bbb;
+}

@@ -17,7 +17,7 @@ app.innerHTML = `
     </div>
     <div class="subtitle-container">
       <h2>The <span class="highlight">best rated</span> stock fight on the market</h2>
-      <h3>Where stocks come to fight</h3>
+      <h3>Discover the Ultimate Stock Combat Zone</h3>
     </div>
     <form id="stock-form" class="form-container">
       <input id="stock1-input" name="stock1" type="text" placeholder="Enter First Stock Symbol" required>
@@ -294,7 +294,7 @@ async function displayStockData(event) {
   }
 
   await displayStockChart(stock1Symbol, 'stock1-chart', 'week');
-  await displayStockChart(stock2Symbol, 'week');
+  await displayStockChart(stock2Symbol, 'stock2-chart', 'week');
 }
 
 function formatProsCons(items, type) {

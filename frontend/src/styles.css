@@ -3,11 +3,56 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, sans-serif;
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
   transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#app {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.footer .social-icons {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer .social-icons svg {
+  width: 24px;
+  height: 24px;
+}
+
+.footer .personal-project {
+  font-size: 0.8rem;
+  color: #bbb;
+}
+
+.footer .disclaimer {
+  font-size: 0.8rem;
+  color: #bbb;
+  margin-top: 1rem;
+  padding: 0 1rem;
 }
 
 .header {
@@ -73,10 +118,11 @@ body {
 #stock-form {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 #stock-form input, #stock-form button {
-  margin: 0 5px;
+  margin: 5px;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #6558C8;
@@ -185,27 +231,48 @@ tr:nth-child(even) {
   color: #8b5cf6; /* Purple link color */
 }
 
-.footer {
+.dark-mode .footer {
   background-color: #1f2937;
   color: white;
-  text-align: center;
-  padding: 1rem;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
-.footer .social-icons {
-  margin: 1rem 0;
-}
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
 
-.footer .social-icons img {
-  width: 24px;
-  height: 24px;
-  margin: 0 10px;
-}
+  .title-container h1 {
+    font-size: 2rem;
+  }
 
-.footer .personal-project {
-  font-size: 0.8rem;
-  color: #bbb;
+  .subtitle-container h2 {
+    font-size: 2rem;
+  }
+
+  .subtitle-container h3 {
+    font-size: 1rem;
+  }
+
+  .form-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #stock-form input, #stock-form button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .table-container {
+    max-height: unset;
+  }
+
+  th, td {
+    padding: 4px;
+  }
+
+  .chart-container {
+    height: auto;
+  }
 }
